@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="استكشف مجموعة شمس المتميزة من الدهانات الفاخرة، ورق الجدران المصمم خصيصاً، والديكورات المنزلية الفنية. حوّل مساحتك مع لوحات الألوان المنسقة لدينا.">
+  <title>شمس | دهانات فاخرة وديكورات منزلية</title>
+  <!-- Google Fonts for Premium Arabic & Latin Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="site-header" data-testid="header">
+    <div class="header-container">
+      <a href="#" class="logo" data-testid="navbar-logo">
+        شركة شمس للدهانات و الديكور
+      </a>
+      <nav class="main-nav" data-testid="navbar-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#" class="nav-link active" data-testid="nav-link-home">الرئيسية</a></li>
+          <li class="nav-item"><a href="#showcase" class="nav-link" data-testid="nav-link-paints">الدهانات</a></li>
+          <li class="nav-item"><a href="#showcase" class="nav-link" data-testid="nav-link-decorations">الديكورات</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="#contact" class="btn btn-outline" data-testid="nav-button-contact">اتصل بنا / طلب استشارة</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" data-testid="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tagline" data-testid="hero-tagline">ألوان وتصاميم جدران حرفية</span>
+      <h1 class="hero-title" data-testid="hero-title">حوّل مساحتك الخاصة</h1>
+      <p class="hero-subtitle" data-testid="hero-subtitle">
+        اكتشف دهانات فاخرة، وورق جدران فاخر الملمس، وديكورات منزلية فريدة منسقة خصيصاً للارتقاء بحياتك اليومية.
+      </p>
+      <div class="hero-actions-container">
+        <a href="#showcase" class="btn btn-primary" data-testid="hero-cta-button">تصفح المجموعة</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Showcase Section -->
+  <section id="showcase" class="showcase-section" data-testid="product-showcase-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">مجموعتنا المختارة بعناية</span>
+        <h2 class="section-title">المجموعة المتميزة</h2>
+        <p class="section-description">
+          صُممت كل لمسة نهائية وملمس جداري بعناية فائقة وتفاصيل دقيقة، لتضفي الدفء والتميز والفخامة على منزلك.
+        </p>
+      </div>
+
+      <!-- CSS Grid Product Showcase -->
+      <div class="product-grid" data-testid="product-showcase-grid">
+        
+        <!-- Top Featured Card (Jotun Showcase) -->
+        <article class="product-card product-card-featured" data-testid="product-card-jotun">
+          <div class="product-image-container product-image-container-featured" data-testid="product-image-container-jotun">
+            <a href="jotun.html" class="product-image-placeholder color-featured jotun-featured-placeholder" data-testid="product-image-placeholder-jotun">
+              <!-- Jotun Logo Image from Assets -->
+              <div class="jotun-logo-wrapper">
+                <img src="assets/JotunLogo.png" alt="Jotun | يوتن" class="jotun-image-logo">
+                <div class="jotun-brand-text">
+                  <span class="jotun-name-ar">يوتن</span>
+                  <span class="jotun-name-en">Jotun</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="product-info jotun-product-info">
+            <div class="jotun-card-details">
+              <h3 class="jotun-title"><a href="jotun.html" style="color: inherit; text-decoration: none;">يوتن | Jotun</a></h3>
+              <p class="jotun-desc">الرائد العالمي في حلول الدهانات والتصاميم الابتكارية.</p>
+            </div>
+            <div class="product-footer">
+              <a href="jotun.html" class="btn btn-text" data-testid="product-view-details-1">عرض التفاصيل ←</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 2 -->
+        <article class="product-card" data-testid="product-card">
+          <div class="product-image-container" data-testid="product-image-container-2">
+            <div class="product-image-placeholder color-nordic" data-testid="product-image-placeholder-2"></div>
+          </div>
+          <div class="product-info">
+            <div class="product-footer">
+              <button class="btn btn-text" data-testid="product-view-details-2">عرض التفاصيل ←</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 3 -->
+        <article class="product-card" data-testid="product-card">
+          <div class="product-image-container" data-testid="product-image-container-3">
+            <div class="product-image-placeholder color-sage" data-testid="product-image-placeholder-3"></div>
+          </div>
+          <div class="product-info">
+            <div class="product-footer">
+              <button class="btn btn-text" data-testid="product-view-details-3">عرض التفاصيل ←</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 4 -->
+        <article class="product-card" data-testid="product-card">
+          <div class="product-image-container" data-testid="product-image-container-4">
+            <div class="product-image-placeholder color-brass" data-testid="product-image-placeholder-4"></div>
+          </div>
+          <div class="product-info">
+            <div class="product-footer">
+              <button class="btn btn-text" data-testid="product-view-details-4">عرض التفاصيل ←</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Request Section -->
+  <section id="contact" class="contact-section" data-testid="contact-section">
+    <div class="container container-narrow">
+      <div class="section-header text-center">
+        <span class="section-subtitle">تواصل معنا</span>
+        <h2 class="section-title">طلب استشارة تصميمية</h2>
+        <p class="section-description">
+          هل تحتاج إلى مساعدة في تنسيق الدهانات وورق الجدران؟ املأ النموذج أدناه، وسيتواصل معك مستشارو التصميم لدينا لمساعدتك في إنشاء مساحة أحلامك.
+        </p>
+      </div>
+      <form class="contact-form" data-testid="consultation-form" action="https://formsubmit.co/shams2092005@gmail.com" method="POST" id="consultationForm">
+        <!-- FormSubmit Configuration Settings -->
+        <input type="hidden" name="_cc" value="shams.jotun2016@hotmail.com">
+        <input type="hidden" name="_subject" value="طلب استشارة تصميمية جديد - شركة شمس للدهانات والديكور">
+        <input type="hidden" name="_next" id="nextRedirect" value="">
+        <!-- Disable captcha for seamless auto-redirection -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">الاسم الكريم</label>
+            <input type="text" id="name" name="الاسم" placeholder="محمد أحمد" required data-testid="contact-input-name">
+          </div>
+          <div class="form-group">
+            <label for="email">البريد الإلكتروني (اختياري)</label>
+            <input type="email" id="email" name="البريد الإلكتروني" placeholder="example@domain.com" data-testid="contact-input-email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">رقم الهاتف</label>
+            <input type="tel" id="phone" name="الهاتف" placeholder="01XXXXXXXXX" required data-testid="contact-input-phone">
+          </div>
+          <div class="form-group">
+            <label for="interest">مهتم بـ</label>
+            <select id="interest" name="الاهتمام" required data-testid="contact-select-interest">
+              <option value="" disabled selected>اختر خياراً</option>
+              <option value="paints">دهانات فاخرة</option>
+              <option value="wallpapers">ورق جدران فاخر</option>
+              <option value="both">تنسيق دهانات وورق جدران</option>
+              <option value="decorations">ديكورات منزلية</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">رسالتك</label>
+          <textarea id="message" name="الرسالة" rows="5" placeholder="أخبرنا عن تفاصيل مشروعك..." required data-testid="contact-textarea-message"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary btn-block" data-testid="contact-submit-button">إرسال الطلب</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="site-footer" data-testid="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo" data-testid="footer-logo">شركة شمس للدهانات و الديكور</a>
+        <p class="footer-tagline">نرتقي بالمساحات من خلال ألوان مدروسة، ومسامات فاخرة، وقطع تصميمية مميزة.</p>
+      </div>
+      
+      <div class="footer-links-group">
+        <h4 class="footer-heading">المجموعات</h4>
+        <ul class="footer-links">
+          <li><a href="#showcase" data-testid="footer-link-paints">الدهانات الفاخرة</a></li>
+          <li><a href="#showcase" data-testid="footer-link-wallpapers">ورق الجدران الفاخر</a></li>
+          <li><a href="#showcase" data-testid="footer-link-decor">الديكورات المنزلية</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-heading">الشركة</h4>
+        <ul class="footer-links">
+          <li><a href="#" data-testid="footer-link-about">قصتنا</a></li>
+          <li><a href="#" data-testid="footer-link-sustainability">الاستدامة والبيئة</a></li>
+          <li><a href="#contact" data-testid="footer-link-contact">اتصل بنا</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-heading">التواصل</h4>
+        <ul class="footer-social-links">
+          <li><a href="#" data-testid="footer-social-link-instagram">إنستغرام</a></li>
+          <li><a href="#" data-testid="footer-social-link-pinterest">بينتيريست</a></li>
+          <li><a href="#" data-testid="footer-social-link-facebook">فيسبوك</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p class="copyright" data-testid="footer-copyright">&copy; 2026 استوديو شمس للتصميم. جميع الحقوق محفوظة.</p>
+        <div class="footer-bottom-links">
+          <a href="#" data-testid="footer-link-privacy">سياسة الخصوصية</a>
+          <a href="#" data-testid="footer-link-terms">شروط الخدمة</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('consultationForm').addEventListener('submit', function(e) {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value || 'غير محدد';
+      const phone = document.getElementById('phone').value;
+      const interestSelect = document.getElementById('interest');
+      const interestText = interestSelect.options[interestSelect.selectedIndex].text;
+      const message = document.getElementById('message').value;
+
+      // Construct Arabic formatted WhatsApp message content
+      const waText = `طلب استشارة تصميمية جديد من موقع شركة شمس للدهانات والديكور:
+الاسم: ${name}
+البريد الإلكتروني: ${email}
+رقم الهاتف: ${phone}
+القسم المهتم به: ${interestText}
+تفاصيل الرسالة:
+${message}`;
+
+      // Encode characters and generate standard wa.me redirect link
+      const encodedText = encodeURIComponent(waText);
+      const waUrl = `https://wa.me/201017088288?text=${encodedText}`;
+
+      document.getElementById('nextRedirect').value = waUrl;
+    });
+  </script>
+
+</body>
+</html>
