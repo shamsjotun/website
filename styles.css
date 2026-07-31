@@ -330,13 +330,30 @@ p {
 }
 
 .section-subtitle {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
   font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--secondary-accent); /* Red accent subtitle */
-  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--primary-accent); /* Warm Gold accent */
+  background-color: rgba(236, 169, 8, 0.08); /* Gold glassmorphism tint */
+  border: 1px solid rgba(236, 169, 8, 0.3);
+  padding: 0.45rem 1.5rem;
+  border-radius: 30px;
+  margin-bottom: 1.5rem;
   font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.section-subtitle::before,
+.section-subtitle::after {
+  content: '✦';
+  font-size: 0.65rem;
+  color: var(--primary-accent);
+  opacity: 0.85;
 }
 
 .section-title {
