@@ -15,7 +15,7 @@
 
   /* Fonts */
   --font-family-body: 'Cairo', 'Outfit', sans-serif;
-  --font-family-title: 'Amiri', 'Playfair Display', serif;
+  --font-family-title: 'Aref Ruqaa', 'Amiri', 'Playfair Display', serif;
 
   /* Layout and Spacing */
   --container-width: 1200px;
@@ -340,7 +340,7 @@ p {
 }
 
 .section-title {
-  font-family: 'Aref Ruqaa', 'Amiri', serif;
+  font-family: 'Aref Ruqaa', 'Amiri', serif !important;
   font-size: clamp(2rem, 3.5vw, 2.85rem);
   font-weight: 400;
   line-height: 1.4;
