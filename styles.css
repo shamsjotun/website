@@ -122,13 +122,14 @@ p {
 .btn-text {
   background: transparent;
   border: none;
-  color: var(--secondary-accent); /* Red for secondary action */
+  color: var(--primary-accent); /* Yellow/Gold for action buttons */
   font-weight: 600;
   font-size: 0.9rem;
   padding: 0;
   text-transform: none;
   letter-spacing: 0;
   position: relative;
+  text-decoration: none;
 }
 
 .btn-text::after {
@@ -137,19 +138,19 @@ p {
   bottom: -2px;
   left: 0;
   width: 100%;
-  height: 1px;
-  background-color: var(--secondary-accent);
+  height: 1.5px;
+  background-color: var(--primary-accent);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
 }
 
 .btn-text:hover {
-  color: var(--primary-accent); /* Gold hover */
+  color: #ffffff; /* White on hover */
 }
 
 .btn-text:hover::after {
-  background-color: var(--primary-accent);
+  background-color: #ffffff;
   transform: scaleX(1);
   transform-origin: left;
 }
