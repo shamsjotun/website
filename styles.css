@@ -297,11 +297,11 @@ p {
 }
 
 .hero-title {
-  font-family: var(--font-family-title); /* Softened classic serif font */
-  font-size: clamp(1.8rem, 3.5vw, 3rem); /* Subdued scale */
-  font-weight: 400; /* Regular weight so company logo dominates attention */
-  line-height: 1.4;
-  color: #dce6f5; /* Softened slate white */
+  font-family: 'Aref Ruqaa', 'Amiri', serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 400; /* Elegant, artistic non-bold weight */
+  line-height: 1.5;
+  color: #e4ecf7;
   margin-bottom: 1.5rem;
 }
 
