@@ -22,8 +22,8 @@
       <nav class="main-nav" data-testid="navbar-nav">
         <ul class="nav-list">
           <li class="nav-item"><a href="#" class="nav-link active" data-testid="nav-link-home">الرئيسية</a></li>
-          <li class="nav-item"><a href="jotun.html" class="nav-link" data-testid="nav-link-jotun">يوتن</a></li>
-          <li class="nav-item"><a href="#showcase" class="nav-link" data-testid="nav-link-other-companies">شركات اخرى</a></li>
+          <li class="nav-item"><a href="#jotun-card" class="nav-link" data-testid="nav-link-jotun">يوتن</a></li>
+          <li class="nav-item"><a href="#other-companies" class="nav-link" data-testid="nav-link-other-companies">شركات اخرى</a></li>
         </ul>
       </nav>
       <div class="header-actions">
@@ -62,7 +62,7 @@
       <div class="product-grid" data-testid="product-showcase-grid">
         
         <!-- Top Featured Card (Jotun Showcase) -->
-        <article class="product-card product-card-featured" data-testid="product-card-jotun">
+        <article class="product-card product-card-featured" id="jotun-card" data-testid="product-card-jotun">
           <div class="product-image-container product-image-container-featured" data-testid="product-image-container-jotun">
             <a href="jotun.html" class="product-image-placeholder color-featured jotun-featured-placeholder" data-testid="product-image-placeholder-jotun">
               <!-- Jotun Logo Image from Assets -->
@@ -86,8 +86,8 @@
           </div>
         </article>
 
-        <!-- Product Card 2: Primers / Base Coats -->
-        <article class="product-card" data-testid="product-card-primers">
+        <!-- Product Card 2: Primers / Base Coats (Start of Other Companies) -->
+        <article class="product-card" id="other-companies" data-testid="product-card-primers">
           <div class="product-image-container" data-testid="product-image-container-2">
             <a href="primers.html" data-testid="product-image-link-2">
               <div class="product-image-placeholder color-nordic" data-testid="product-image-placeholder-2"></div>
