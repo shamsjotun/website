@@ -362,9 +362,9 @@ p {
 }
 
 .section-title {
-  font-family: 'Aref Ruqaa', 'Amiri', serif !important;
+  font-family: 'Cairo', 'Tajawal', sans-serif !important;
   font-size: clamp(2rem, 3.5vw, 2.85rem);
-  font-weight: 400;
+  font-weight: 800;
   line-height: 1.4;
   color: var(--text-main);
   margin-bottom: 1.25rem;
