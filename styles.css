@@ -781,22 +781,103 @@ p {
   padding-left: 5px;
 }
 
-.footer-social-links {
-  list-style: none;
+/* --- Beautiful Contact Social Bar & Icons System --- */
+.contact-social-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+  margin-bottom: 2.5rem;
+  padding: 1.25rem 2rem;
+  background: rgba(5, 44, 112, 0.6);
+  border: 1px solid rgba(236, 169, 8, 0.25);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
-.footer-social-links li {
-  margin-bottom: 0.9rem;
-}
-
-.footer-social-links a {
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 1.25rem;
   text-decoration: none;
-  color: #a5afbf;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition: var(--transition-smooth);
 }
 
-.footer-social-links a:hover {
-  color: var(--primary-accent); /* Gold on hover */
+.social-icon-btn:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+
+.social-icon-btn.whatsapp:hover {
+  background: #25D366;
+  color: #ffffff;
+  border-color: #25D366;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.social-icon-btn.facebook:hover {
+  background: #1877F2;
+  color: #ffffff;
+  border-color: #1877F2;
+  box-shadow: 0 6px 20px rgba(24, 119, 242, 0.5);
+}
+
+.social-icon-btn.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(220, 39, 67, 0.5);
+}
+
+.social-icon-btn.tiktok:hover {
+  background: #000000;
+  color: #00f2fe;
+  border-color: #00f2fe;
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+}
+
+.social-icon-btn.phone:hover {
+  background: var(--primary-accent);
+  color: #012663;
+  border-color: var(--primary-accent);
+  box-shadow: 0 6px 20px rgba(236, 169, 8, 0.6);
+}
+
+.contact-phone-text {
+  font-family: var(--font-family-body);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--primary-accent);
+  letter-spacing: 1px;
+  direction: ltr;
+  display: inline-block;
+  padding: 0.4rem 1.1rem;
+  background: rgba(236, 169, 8, 0.12);
+  border: 1px solid rgba(236, 169, 8, 0.35);
+  border-radius: 30px;
+}
+
+.footer-social-icons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer-icons-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .footer-bottom {
