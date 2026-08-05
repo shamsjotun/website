@@ -867,6 +867,39 @@ p {
   border-radius: 30px;
 }
 
+/* --- Consultation Header Box & Typography Styling --- */
+.consultation-title-box {
+  margin-top: 2rem;
+  margin-bottom: 2.25rem;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(145deg, rgba(2, 28, 77, 0.75) 0%, rgba(5, 44, 112, 0.5) 100%);
+  border: 1px solid rgba(236, 169, 8, 0.28);
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.consultation-title {
+  font-family: 'Cairo', 'Tajawal', sans-serif !important;
+  font-size: 2.35rem !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #ffffff 30%, #ECA908 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.1rem !important;
+  text-shadow: 0 4px 25px rgba(236, 169, 8, 0.25);
+}
+
+.consultation-description {
+  font-size: 1.15rem !important;
+  line-height: 1.95 !important;
+  color: #d2dceb !important;
+  max-width: 680px;
+  margin: 0 auto !important;
+  font-weight: 400;
+}
+
 .footer-social-icons-list {
   display: flex;
   flex-direction: column;
