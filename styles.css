@@ -325,8 +325,8 @@ p {
 .hero-brand-text-group {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: right;
+  align-items: center;
+  text-align: center;
 }
 
 .hero-company-logo {
