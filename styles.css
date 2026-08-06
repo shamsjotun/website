@@ -319,7 +319,7 @@ p {
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .hero-brand-text-group {
@@ -350,7 +350,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: var(--primary-accent); /* Gold tagline */
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   font-weight: 500;
 }
 
@@ -358,9 +358,9 @@ p {
   font-family: 'Aref Ruqaa', 'Amiri', serif;
   font-size: clamp(2.2rem, 4.5vw, 3.5rem);
   font-weight: 400; /* Elegant, artistic non-bold weight */
-  line-height: 1.5;
+  line-height: 1.35;
   color: #e4ecf7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .hero-subtitle {
