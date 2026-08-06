@@ -1030,10 +1030,18 @@ p {
 @media (max-width: 768px) {
   /* Header adjustments */
   .site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     height: auto;
-    padding: 1rem 0;
-    position: relative;
+    padding: 0.75rem 0;
     margin-top: 0;
+    background-color: rgba(0, 16, 42, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--glass-border);
   }
   
   .header-container {
