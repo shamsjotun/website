@@ -459,6 +459,7 @@ p {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   transition: var(--transition-smooth);
 }
 
