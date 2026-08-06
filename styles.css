@@ -188,11 +188,12 @@ p {
 
 .logo {
   font-family: var(--font-family-body);
-  font-size: 3.2rem;
+  font-size: 1.75rem;
   font-weight: 900;
   text-decoration: none;
   color: var(--primary-accent); /* Vibrant gold */
   letter-spacing: normal;
+  white-space: nowrap;
   text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.75), 0 2px 4px rgba(0, 0, 0, 0.9);
   transition: var(--transition-smooth);
 }
@@ -982,10 +983,11 @@ p {
   }
 
   .logo {
-    font-size: 2.2rem;
+    font-size: 1.45rem;
     font-weight: 900;
     line-height: 1.3;
     text-align: center;
+    white-space: nowrap;
     text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.8);
   }
 
@@ -1146,7 +1148,7 @@ p {
     max-height: 75px;
   }
   .logo {
-    font-size: 2.0rem;
+    font-size: 1.25rem;
   }
 
   .hero-title {
