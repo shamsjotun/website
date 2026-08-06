@@ -329,6 +329,9 @@ p {
 .hero-actions-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 /* --- Section Formatting --- */
