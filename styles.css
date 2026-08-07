@@ -905,6 +905,13 @@ p {
   box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
 }
 
+.social-icon-btn.pinterest:hover {
+  background: #E60023;
+  color: #ffffff;
+  border-color: #E60023;
+  box-shadow: 0 6px 20px rgba(230, 0, 35, 0.5);
+}
+
 .social-icon-btn.phone:hover {
   background: var(--primary-accent);
   color: #012663;
