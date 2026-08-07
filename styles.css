@@ -959,6 +959,13 @@ p {
   box-shadow: 0 6px 20px rgba(230, 0, 35, 0.5);
 }
 
+.social-icon-btn.maps:hover {
+  background: #EA4335;
+  color: #ffffff;
+  border-color: #EA4335;
+  box-shadow: 0 6px 20px rgba(234, 67, 53, 0.5);
+}
+
 .social-icon-btn.phone:hover {
   background: var(--primary-accent);
   color: #012663;
