@@ -207,40 +207,6 @@
           </p>
         </div>
       </div>
-      <form class="contact-form" data-testid="consultation-form" action="https://formsubmit.co/shams2092005@gmail.com" method="POST" id="consultationForm">
-        <!-- FormSubmit Configuration Settings -->
-        <input type="hidden" name="_cc" value="shams.jotun2016@hotmail.com">
-        <input type="hidden" name="_subject" value="طلب استشارة تصميمية جديد - شركة الشمس للدهانات والديكور">
-        <input type="hidden" name="_next" id="nextRedirect" value="">
-        <!-- Disable captcha for seamless auto-redirection -->
-        <input type="hidden" name="_captcha" value="false">
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">الاسم الكريم</label>
-            <input type="text" id="name" name="الاسم" placeholder="محمد أحمد" required data-testid="contact-input-name">
-          </div>
-          <div class="form-group">
-            <label for="phone">رقم الهاتف</label>
-            <input type="tel" id="phone" name="الهاتف" placeholder="01XXXXXXXXX" required data-testid="contact-input-phone">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="interest">مهتم بـ</label>
-          <select id="interest" name="الاهتمام" required data-testid="contact-select-interest">
-            <option value="" disabled selected>اختر خياراً</option>
-            <option value="paints">دهانات فاخرة</option>
-            <option value="decorations">ديكورات منزلية</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">رسالتك</label>
-          <textarea id="message" name="الرسالة" rows="5" placeholder="أخبرنا عن تفاصيل مشروعك..." required data-testid="contact-textarea-message"></textarea>
-        </div>
-        <div class="form-submit">
-          <button type="submit" class="btn btn-primary btn-block" data-testid="contact-submit-button">إرسال الطلب</button>
-        </div>
-      </form>
     </div>
   </section>
 
@@ -315,30 +281,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('consultationForm').addEventListener('submit', function(e) {
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const interestSelect = document.getElementById('interest');
-      const interestText = interestSelect.options[interestSelect.selectedIndex].text;
-      const message = document.getElementById('message').value;
-
-      // Construct Arabic formatted WhatsApp message content
-      const waText = `طلب استشارة تصميمية جديد من موقع شركة الشمس للدهانات والديكور:
-الاسم: ${name}
-رقم الهاتف: ${phone}
-القسم المهتم به: ${interestText}
-تفاصيل الرسالة:
-${message}`;
-
-      // Encode characters and generate standard wa.me redirect link
-      const encodedText = encodeURIComponent(waText);
-      const waUrl = `https://wa.me/201017088288?text=${encodedText}`;
-
-      document.getElementById('nextRedirect').value = waUrl;
-    });
-  </script>
 
 </body>
 </html>
