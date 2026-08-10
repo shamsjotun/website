@@ -893,6 +893,7 @@ p {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  direction: ltr;
   gap: clamp(1rem, 2.5vw, 1.65rem);
   margin-top: 1.5rem;
   margin-bottom: 2.25rem;
@@ -1057,6 +1058,7 @@ p {
   flex-direction: column;
   gap: 0.75rem;
   width: fit-content;
+  direction: ltr;
 }
 
 .footer-icons-row {
@@ -1064,14 +1066,16 @@ p {
   grid-template-columns: repeat(3, 44px);
   gap: 0.75rem;
   width: fit-content;
+  direction: ltr;
 }
 
 .footer-phone-row {
   display: grid;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: 1fr 44px;
   gap: 0.75rem;
   width: 100%;
   align-items: center;
+  direction: ltr;
 }
 
 .footer-phone-text {
