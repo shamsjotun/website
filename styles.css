@@ -1028,6 +1028,28 @@ p {
   font-weight: 400;
 }
 
+.consultation-whatsapp-link {
+  color: var(--primary-accent);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  padding: 0.1rem 0.4rem;
+  background: rgba(236, 169, 8, 0.12);
+  border-radius: 6px;
+  border: 1px solid rgba(236, 169, 8, 0.25);
+  transition: var(--transition-smooth);
+  display: inline-block;
+}
+
+.consultation-whatsapp-link:hover {
+  background: #25D366;
+  color: #ffffff;
+  border-color: #25D366;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+  transform: translateY(-2px);
+}
+
 .footer-social-icons-list {
   display: flex;
   flex-direction: column;
