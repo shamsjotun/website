@@ -15,7 +15,7 @@
 
   /* Fonts */
   --font-family-body: 'Cairo', 'Outfit', sans-serif;
-  --font-family-title: 'Aref Ruqaa', 'Amiri', 'Playfair Display', serif;
+  --font-family-title: 'Cairo', 'Tajawal', 'Alexandria', sans-serif;
 
   /* Layout and Spacing */
   --container-width: 1200px;
@@ -67,7 +67,7 @@ body {
 /* --- Typography --- */
 h1, h2, h3, h4 {
   font-family: var(--font-family-title);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.25;
   color: var(--text-main);
 }
@@ -355,9 +355,9 @@ p {
 }
 
 .hero-title {
-  font-family: 'Aref Ruqaa', 'Amiri', serif;
+  font-family: var(--font-family-title);
   font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-  font-weight: 400; /* Elegant, artistic non-bold weight */
+  font-weight: 800;
   line-height: 1.35;
   color: #e4ecf7;
   margin-bottom: 0.25rem;
@@ -667,7 +667,7 @@ p {
 }
 
 .product-title {
-  font-family: 'Aref Ruqaa', 'Cairo', serif;
+  font-family: var(--font-family-title);
   font-size: 1.75rem;
   margin-bottom: 0.75rem;
   color: var(--text-main);
