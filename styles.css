@@ -1396,6 +1396,27 @@ p {
 
   .footer-links-group {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-social-icons-list {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-heading {
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-links {
+    padding: 0;
+    text-align: center;
+    width: 100%;
   }
 
   .footer-bottom-container {
