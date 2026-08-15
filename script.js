@@ -1,6 +1,6 @@
 /**
  * Shams Website - High-Performance Card Entrance & Scroll Animations
- * Works smoothly on both Mobile & Desktop with alternating Left/Right slide into position.
+ * Cards appear alternately: first card from left to right, next card from right to left, and so on.
  */
 document.addEventListener('DOMContentLoaded', () => {
   const animatedElements = document.querySelectorAll(
@@ -14,15 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
   animatedElements.forEach((el, index) => {
     el.classList.add('animate-on-scroll');
     
-    // Alternate direction: even index from right, odd index from left
+    // First card (even index: 0, 2, 4...) appears from Left to Right
+    // Second card (odd index: 1, 3, 5...) appears from Right to Left
     if (index % 2 === 0) {
-      el.classList.add('animate-slide-right');
+      el.classList.add('animate-from-left');
     } else {
-      el.classList.add('animate-slide-left');
+      el.classList.add('animate-from-right');
     }
 
-    // Gentle stagger delay
-    const staggerDelay = isMobile ? (index % 2) * 0.06 : (index % 3) * 0.1;
+    // Stagger delay for fluid waterfall reveal
+    const staggerDelay = isMobile ? (index % 2) * 0.08 : (index % 3) * 0.12;
     el.style.transitionDelay = `${staggerDelay}s`;
   });
 

@@ -1650,23 +1650,25 @@ html[dir="rtl"] .footer-links a:hover {
 
 .animate-on-scroll {
   opacity: 0;
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
-/* Slide from Right to original position */
-.animate-slide-right {
-  transform: translate3d(35px, 15px, 0);
-}
-
-/* Slide from Left to original position */
+/* Appear from Left to Right (starts on the left at -45px) */
+.animate-from-left,
 .animate-slide-left {
-  transform: translate3d(-35px, 15px, 0);
+  transform: translate3d(-45px, 10px, 0);
 }
 
-/* Slide from Bottom to original position */
+/* Appear from Right to Left (starts on the right at +45px) */
+.animate-from-right,
+.animate-slide-right {
+  transform: translate3d(45px, 10px, 0);
+}
+
+/* Appear from Bottom to Top */
 .animate-slide-up {
-  transform: translate3d(0, 25px, 0);
+  transform: translate3d(0, 30px, 0);
 }
 
 /* Target State: Restored perfectly to original position */
@@ -1688,14 +1690,16 @@ html[dir="rtl"] .footer-links a:hover {
   }
 }
 
-/* Mobile Animation: controlled horizontal slide so text/cards never get clipped or pushed off screen */
+/* Mobile Animation: controlled slide distances for smooth performance without clipping */
 @media (max-width: 768px) {
-  .animate-slide-right {
-    transform: translate3d(18px, 12px, 0);
+  .animate-from-left,
+  .animate-slide-left {
+    transform: translate3d(-24px, 8px, 0);
   }
 
-  .animate-slide-left {
-    transform: translate3d(-18px, 12px, 0);
+  .animate-from-right,
+  .animate-slide-right {
+    transform: translate3d(24px, 8px, 0);
   }
 
   .animate-slide-up {
@@ -1703,8 +1707,9 @@ html[dir="rtl"] .footer-links a:hover {
   }
 
   .animate-on-scroll {
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
+
 
 
