@@ -1496,6 +1496,10 @@ p {
     font-size: clamp(0.95rem, 2.5vw, 1.15rem);
     flex-shrink: 0;
   }
+
+  .header-company-logo {
+    height: 48px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1524,7 +1528,7 @@ p {
   }
 
   .header-company-logo {
-    height: 32px;
+    height: 44px;
   }
 
   .main-nav {
@@ -1566,7 +1570,7 @@ p {
   }
 
   .header-company-logo {
-    height: 26px;
+    height: 38px;
   }
 
   .nav-link {
