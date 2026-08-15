@@ -1,17 +1,15 @@
 /**
- * Shams Website - Modern Card Entrance & Scroll Animations
- * Uses IntersectionObserver on desktop.
- * On mobile, elements remain in natural static layout to prevent viewport clipping and rendering delays.
+ * Shams Website - High-Performance Card Entrance & Scroll Animations
+ * Works smoothly on both Mobile & Desktop with alternating Left/Right slide into position.
  */
 document.addEventListener('DOMContentLoaded', () => {
-  // Disable JS scroll transformations on mobile devices to ensure 100% stable layout
-  if (window.innerWidth <= 768) {
-    return;
-  }
-
   const animatedElements = document.querySelectorAll(
     '.product-card, .consultation-title-box, .contact-social-bar, .featured-item'
   );
+
+  if (!animatedElements.length) return;
+
+  const isMobile = window.innerWidth <= 768;
 
   animatedElements.forEach((el, index) => {
     el.classList.add('animate-on-scroll');
@@ -23,30 +21,52 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('animate-slide-left');
     }
 
-    // Subtle staggered ripple delay per row
-    const staggerDelay = (index % 3) * 0.12;
+    // Gentle stagger delay
+    const staggerDelay = isMobile ? (index % 2) * 0.06 : (index % 3) * 0.1;
     el.style.transitionDelay = `${staggerDelay}s`;
   });
 
-  // Check if IntersectionObserver is supported
-  if ('IntersectionObserver' in window) {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -20px 0px'
-    };
+  const revealElement = (el) => {
+    el.classList.add('is-visible');
+  };
 
+  // Immediate visibility check for elements near or in the viewport
+  const checkInitialVisibility = () => {
+    const triggerBottom = window.innerHeight + 120;
+    animatedElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < triggerBottom && rect.bottom > -50) {
+        revealElement(el);
+      }
+    });
+  };
+
+  // IntersectionObserver for smooth scroll detection
+  if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          revealElement(entry.target);
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, {
+      threshold: 0.02,
+      rootMargin: '100px 0px 50px 0px'
+    });
 
-    animatedElements.forEach((el) => observer.observe(el));
-  } else {
-    // Fallback
-    animatedElements.forEach((el) => el.classList.add('is-visible'));
+    animatedElements.forEach((el) => {
+      if (!el.classList.contains('is-visible')) {
+        observer.observe(el);
+      }
+    });
   }
+
+  // Trigger checks immediately on load so top cards animate right away
+  checkInitialVisibility();
+  requestAnimationFrame(checkInitialVisibility);
+  setTimeout(checkInitialVisibility, 150);
+
+  // Smooth scroll listener as reliable backup
+  window.addEventListener('scroll', checkInitialVisibility, { passive: true });
 });

@@ -1614,36 +1614,40 @@ html[dir="rtl"] .footer-links a:hover {
 /* ==========================================================================
    Smooth Card Entrance & Reveal Animations
    ========================================================================== */
+.showcase-section {
+  overflow: hidden;
+}
+
 .animate-on-scroll {
   opacity: 0;
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 /* Slide from Right to original position */
 .animate-slide-right {
-  transform: translateX(60px) translateY(20px) scale(0.97);
+  transform: translate3d(35px, 15px, 0);
 }
 
 /* Slide from Left to original position */
 .animate-slide-left {
-  transform: translateX(-60px) translateY(20px) scale(0.97);
+  transform: translate3d(-35px, 15px, 0);
 }
 
 /* Slide from Bottom to original position */
 .animate-slide-up {
-  transform: translateY(40px) scale(0.97);
+  transform: translate3d(0, 25px, 0);
 }
 
 /* Target State: Restored perfectly to original position */
 .animate-on-scroll.is-visible {
   opacity: 1;
-  transform: translateX(0) translateY(0) scale(1);
+  transform: translate3d(0, 0, 0);
 }
 
 /* Ensure hover transitions are ultra-smooth after appearing */
 .product-card.animate-on-scroll.is-visible:hover {
-  transform: translateY(-8px) scale(1);
+  transform: translate3d(0, -8px, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1654,16 +1658,23 @@ html[dir="rtl"] .footer-links a:hover {
   }
 }
 
-/* Mobile: strictly disable transforms and hidden states so cards are always 100% visible and perfectly aligned */
+/* Mobile Animation: controlled horizontal slide so text/cards never get clipped or pushed off screen */
 @media (max-width: 768px) {
-  .animate-on-scroll,
-  .animate-slide-right,
-  .animate-slide-left,
+  .animate-slide-right {
+    transform: translate3d(18px, 12px, 0);
+  }
+
+  .animate-slide-left {
+    transform: translate3d(-18px, 12px, 0);
+  }
+
   .animate-slide-up {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    will-change: auto !important;
+    transform: translate3d(0, 16px, 0);
+  }
+
+  .animate-on-scroll {
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
+
 
