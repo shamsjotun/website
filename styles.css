@@ -1610,3 +1610,47 @@ html[dir="rtl"] .footer-links a:hover {
   padding-right: 5px;
   padding-left: 0;
 }
+
+/* ==========================================================================
+   Smooth Card Entrance & Reveal Animations
+   ========================================================================== */
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Slide from Right to original position */
+.animate-slide-right {
+  transform: translateX(60px) translateY(20px) scale(0.97);
+}
+
+/* Slide from Left to original position */
+.animate-slide-left {
+  transform: translateX(-60px) translateY(20px) scale(0.97);
+}
+
+/* Slide from Bottom to original position */
+.animate-slide-up {
+  transform: translateY(40px) scale(0.97);
+}
+
+/* Target State: Restored perfectly to original position */
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1);
+}
+
+/* Ensure hover transitions are ultra-smooth after appearing */
+.product-card.animate-on-scroll.is-visible:hover {
+  transform: translateY(-8px) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
