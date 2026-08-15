@@ -923,10 +923,10 @@ p {
   justify-content: center;
   flex-wrap: wrap;
   direction: ltr;
-  gap: clamp(1rem, 2.5vw, 1.65rem);
+  gap: clamp(1.2rem, 3vw, 2rem);
   margin-top: 1.5rem;
   margin-bottom: 2.25rem;
-  padding: 1.75rem 2.5rem;
+  padding: 1.85rem 3rem;
   background: linear-gradient(145deg, rgba(2, 11, 26, 0.9) 0%, rgba(5, 20, 45, 0.65) 100%);
   border: 1px solid rgba(236, 169, 8, 0.28);
   border-radius: 24px;
@@ -935,6 +935,12 @@ p {
   -webkit-backdrop-filter: blur(12px);
   width: 100%;
   box-sizing: border-box;
+}
+
+.contact-social-bar .social-icon-btn {
+  width: 58px;
+  height: 58px;
+  font-size: 1.6rem;
 }
 
 .social-icon-btn {
@@ -1092,26 +1098,24 @@ p {
 }
 
 .footer-phone-row {
-  display: grid;
-  grid-template-columns: 1fr 44px;
-  gap: 0.75rem;
+  display: flex;
   width: 100%;
-  align-items: center;
   direction: ltr;
 }
 
 .footer-phone-text {
+  width: 100%;
   font-family: var(--font-family-body);
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--primary-accent);
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   direction: ltr;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 44px;
-  padding: 0 0.5rem;
+  padding: 0 0.75rem;
   box-sizing: border-box;
   background: rgba(236, 169, 8, 0.08);
   border: 1px solid rgba(236, 169, 8, 0.3);
@@ -1506,16 +1510,16 @@ p {
 
   .contact-social-bar {
     flex-wrap: nowrap;
-    gap: clamp(0.35rem, 2vw, 0.75rem);
-    padding: 1rem 0.6rem;
+    gap: clamp(0.4rem, 2.5vw, 0.85rem);
+    padding: 1.15rem 0.75rem;
     justify-content: space-evenly;
     border-radius: 18px;
   }
 
   .contact-social-bar .social-icon-btn {
-    width: clamp(34px, 8.5vw, 42px);
-    height: clamp(34px, 8.5vw, 42px);
-    font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+    width: clamp(40px, 10vw, 50px);
+    height: clamp(40px, 10vw, 50px);
+    font-size: clamp(1.15rem, 3.4vw, 1.45rem);
     flex-shrink: 0;
   }
 
@@ -1567,14 +1571,14 @@ p {
   }
 
   .contact-social-bar {
-    padding: 0.85rem 0.35rem;
-    gap: clamp(0.2rem, 1.8vw, 0.45rem);
+    padding: 1rem 0.5rem;
+    gap: clamp(0.25rem, 2vw, 0.55rem);
   }
 
   .contact-social-bar .social-icon-btn {
-    width: clamp(32px, 8.2vw, 36px);
-    height: clamp(32px, 8.2vw, 36px);
-    font-size: 0.92rem;
+    width: clamp(38px, 9.8vw, 46px);
+    height: clamp(38px, 9.8vw, 46px);
+    font-size: 1.15rem;
   }
 
   .contact-header-top-row .section-subtitle,
