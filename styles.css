@@ -5,13 +5,13 @@
 /* --- Custom Properties (Design System) --- */
 :root {
   /* Specific Color Scheme Variables */
-  --bg-color: #01173d;
+  --bg-color: #020b18;
   --primary-accent: #eca908;
   --secondary-accent: #d32b1e;
   --text-main: #ffffff;
 
   /* Placeholder Background Variable */
-  --placeholder-bg: #041f4e;
+  --placeholder-bg: #04142a;
 
   /* Fonts */
   --font-family-body: 'Cairo', 'Outfit', sans-serif;
@@ -168,7 +168,7 @@ p {
   left: 0;
   width: 100%;
   height: var(--header-height);
-  background-color: rgba(1, 23, 61, 0.92); /* Deep midnight blue translucency */
+  background-color: rgba(2, 11, 24, 0.94); /* Deep midnight obsidian translucency */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(211, 43, 30, 0.2); /* Red accent border line */
@@ -286,9 +286,9 @@ p {
   padding: 4rem 2rem;
   /* Dark artistic mesh gradient using deep blue, red, and gold */
   background: 
-    radial-gradient(circle at 10% 20%, rgba(1, 23, 61, 0.98) 0%, rgba(0, 10, 28, 1) 90%),
-    radial-gradient(circle at 85% 20%, rgba(211, 43, 30, 0.15) 0%, transparent 45%),
-    radial-gradient(circle at 90% 80%, rgba(236, 169, 8, 0.12) 0%, transparent 40%);
+    radial-gradient(circle at 10% 20%, rgba(3, 16, 38, 0.98) 0%, rgba(1, 6, 15, 1) 90%),
+    radial-gradient(circle at 85% 20%, rgba(211, 43, 30, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(236, 169, 8, 0.1) 0%, transparent 40%);
   color: var(--text-main);
   text-align: center;
   overflow: hidden;
@@ -456,8 +456,8 @@ p {
 }
 
 .product-card {
-  background-color: #031c47; /* Slightly lighter deep blue than body background */
-  border: 1px solid rgba(211, 43, 30, 0.22); /* Subtle red accent border */
+  background-color: #051329; /* Deep sleek dark card background */
+  border: 1px solid rgba(211, 43, 30, 0.2); /* Subtle red accent border */
   border-radius: 6px;
   overflow: hidden;
   display: flex;
@@ -518,10 +518,10 @@ p {
 /* Muted, dark background variations that blend well with deep blue background */
 .color-featured {
   background: 
-    radial-gradient(circle at 20% 50%, rgba(6, 36, 92, 0.9) 0%, transparent 60%),
-    radial-gradient(circle at 50% 50%, rgba(15, 23, 41, 0.9) 0%, transparent 70%),
-    radial-gradient(circle at 80% 50%, rgba(8, 30, 77, 0.9) 0%, transparent 60%),
-    #021230;
+    radial-gradient(circle at 20% 50%, rgba(4, 20, 48, 0.9) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(10, 15, 28, 0.9) 0%, transparent 70%),
+    radial-gradient(circle at 80% 50%, rgba(5, 18, 42, 0.9) 0%, transparent 60%),
+    #020a17;
 }
 
 /* --- Jotun Featured Card Styling --- */
@@ -535,8 +535,8 @@ p {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 50% 50%, rgba(236, 169, 8, 0.22) 0%, transparent 70%),
-    radial-gradient(circle at 10% 20%, rgba(1, 23, 61, 0.98) 0%, rgba(0, 10, 28, 1) 90%);
+    radial-gradient(circle at 50% 50%, rgba(236, 169, 8, 0.2) 0%, transparent 70%),
+    radial-gradient(circle at 10% 20%, rgba(3, 16, 38, 0.98) 0%, rgba(1, 6, 15, 1) 90%);
 }
 
 .jotun-logo-wrapper {
@@ -713,17 +713,17 @@ p {
 
 /* --- Contact & Consultation Form --- */
 .contact-section {
-  background-color: #000f29; /* Deeper navy blue background */
+  background-color: #010610; /* Ultra-deep dark background */
   border-top: 1px solid rgba(211, 43, 30, 0.2);
   border-bottom: 1px solid rgba(211, 43, 30, 0.2);
 }
 
 .contact-form {
-  background-color: #031c47;
+  background-color: #051329;
   padding: 3.5rem;
   border-radius: 6px;
   box-shadow: var(--shadow-subtle);
-  border: 1px solid rgba(211, 43, 30, 0.25);
+  border: 1px solid rgba(211, 43, 30, 0.2);
 }
 
 .form-row {
@@ -787,7 +787,7 @@ p {
 
 /* --- Footer Section --- */
 .site-footer {
-  background-color: #000c22; /* Extra deep dark blue */
+  background-color: #01050e; /* Obsidian dark footer */
   color: #a5afbf;
   padding: 6rem 0 0 0;
   font-size: 0.95rem;
@@ -913,10 +913,10 @@ p {
   margin-top: 1.5rem;
   margin-bottom: 2.25rem;
   padding: 1.75rem 2.5rem;
-  background: linear-gradient(145deg, rgba(1, 15, 43, 0.85) 0%, rgba(3, 26, 70, 0.6) 100%);
+  background: linear-gradient(145deg, rgba(2, 11, 26, 0.9) 0%, rgba(5, 20, 45, 0.65) 100%);
   border: 1px solid rgba(236, 169, 8, 0.28);
   border-radius: 24px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   width: 100%;
@@ -1017,10 +1017,10 @@ p {
   margin-top: 2rem;
   margin-bottom: 2.25rem;
   padding: 2rem 2.5rem;
-  background: linear-gradient(145deg, rgba(1, 15, 43, 0.85) 0%, rgba(3, 26, 70, 0.6) 100%);
+  background: linear-gradient(145deg, rgba(2, 11, 26, 0.9) 0%, rgba(5, 20, 45, 0.65) 100%);
   border: 1px solid rgba(236, 169, 8, 0.28);
   border-radius: 24px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -1128,7 +1128,7 @@ p {
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 2.5rem 0;
-  background-color: #000614;
+  background-color: #000308;
 }
 
 .footer-bottom-container {
