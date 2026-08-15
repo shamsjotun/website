@@ -1,10 +1,13 @@
 /**
  * Shams Website - Modern Card Entrance & Scroll Animations
- * Uses IntersectionObserver for high-performance smooth animations.
- * Mobile-optimized with reduced distances and generous trigger zones.
+ * Uses IntersectionObserver on desktop.
+ * On mobile, elements remain in natural static layout to prevent viewport clipping and rendering delays.
  */
 document.addEventListener('DOMContentLoaded', () => {
-  const isMobile = window.innerWidth <= 768;
+  // Disable JS scroll transformations on mobile devices to ensure 100% stable layout
+  if (window.innerWidth <= 768) {
+    return;
+  }
 
   const animatedElements = document.querySelectorAll(
     '.product-card, .consultation-title-box, .contact-social-bar, .featured-item'
@@ -20,16 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('animate-slide-left');
     }
 
-    // Add subtle staggered ripple delay per row (shorter on mobile)
-    const staggerDelay = isMobile ? (index % 2) * 0.08 : (index % 3) * 0.12;
+    // Subtle staggered ripple delay per row
+    const staggerDelay = (index % 3) * 0.12;
     el.style.transitionDelay = `${staggerDelay}s`;
   });
 
   // Check if IntersectionObserver is supported
   if ('IntersectionObserver' in window) {
     const observerOptions = {
-      threshold: 0.05,
-      rootMargin: '50px 0px 0px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -20px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animatedElements.forEach((el) => observer.observe(el));
   } else {
-    // Fallback for older browsers
+    // Fallback
     animatedElements.forEach((el) => el.classList.add('is-visible'));
   }
 });

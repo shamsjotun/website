@@ -1654,16 +1654,16 @@ html[dir="rtl"] .footer-links a:hover {
   }
 }
 
-/* Mobile: no horizontal slide, only vertical fade-up to prevent overflow */
+/* Mobile: strictly disable transforms and hidden states so cards are always 100% visible and perfectly aligned */
 @media (max-width: 768px) {
+  .animate-on-scroll,
   .animate-slide-right,
   .animate-slide-left,
   .animate-slide-up {
-    transform: translateX(0) translateY(30px) scale(0.98);
-  }
-
-  .animate-on-scroll {
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
   }
 }
 
