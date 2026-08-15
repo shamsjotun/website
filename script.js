@@ -1,8 +1,11 @@
 /**
  * Shams Website - Modern Card Entrance & Scroll Animations
  * Uses IntersectionObserver for high-performance smooth animations.
+ * Mobile-optimized with reduced distances and generous trigger zones.
  */
 document.addEventListener('DOMContentLoaded', () => {
+  const isMobile = window.innerWidth <= 768;
+
   const animatedElements = document.querySelectorAll(
     '.product-card, .consultation-title-box, .contact-social-bar, .featured-item'
   );
@@ -17,16 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('animate-slide-left');
     }
 
-    // Add subtle staggered ripple delay per row
-    const staggerDelay = (index % 3) * 0.12;
+    // Add subtle staggered ripple delay per row (shorter on mobile)
+    const staggerDelay = isMobile ? (index % 2) * 0.08 : (index % 3) * 0.12;
     el.style.transitionDelay = `${staggerDelay}s`;
   });
 
   // Check if IntersectionObserver is supported
   if ('IntersectionObserver' in window) {
     const observerOptions = {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.05,
+      rootMargin: '50px 0px 0px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {

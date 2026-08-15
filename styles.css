@@ -1654,3 +1654,22 @@ html[dir="rtl"] .footer-links a:hover {
   }
 }
 
+/* Mobile: reduce slide distances so cards stay within viewport */
+@media (max-width: 768px) {
+  .animate-slide-right {
+    transform: translateX(25px) translateY(12px) scale(0.98);
+  }
+
+  .animate-slide-left {
+    transform: translateX(-25px) translateY(12px) scale(0.98);
+  }
+
+  .animate-slide-up {
+    transform: translateY(20px) scale(0.98);
+  }
+
+  .animate-on-scroll {
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
