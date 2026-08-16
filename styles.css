@@ -924,23 +924,23 @@ p {
   align-items: center !important;
   justify-content: center !important;
   direction: ltr;
-  gap: clamp(0.65rem, 1.8vw, 1.25rem) !important;
+  gap: clamp(1rem, 2.8vw, 2.5rem) !important;
   margin: 1.5rem auto 1.5rem auto !important;
-  padding: 0.85rem 1.6rem !important;
+  padding: 1.15rem 2rem !important;
   background: linear-gradient(145deg, rgba(1, 15, 43, 0.85) 0%, rgba(3, 26, 70, 0.6) 100%);
   border: 1px solid rgba(236, 169, 8, 0.32);
-  border-radius: 45px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   width: 100%;
-  max-width: 460px;
+  max-width: 720px;
   box-sizing: border-box;
 }
 
 .contact-social-bar .social-icon-btn {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(236, 169, 8, 0.25);
@@ -1068,6 +1068,7 @@ p {
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   max-width: 720px;
   padding: 2rem 2.5rem;
   background: linear-gradient(145deg, rgba(1, 15, 43, 0.85) 0%, rgba(3, 26, 70, 0.6) 100%);
@@ -1076,6 +1077,7 @@ p {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  box-sizing: border-box;
 }
 
 .consultation-title {
@@ -1558,11 +1560,15 @@ p {
     font-size: 0.9rem;
   }
 
+  .contact-social-bar,
+  .consultation-title-box {
+    max-width: 600px;
+    border-radius: 24px;
+  }
+
   .contact-social-bar {
-    max-width: 420px;
-    padding: 0.75rem 1rem !important;
-    gap: clamp(0.4rem, 2vw, 0.75rem) !important;
-    border-radius: 35px;
+    padding: 0.85rem 1rem !important;
+    gap: clamp(0.4rem, 2vw, 0.85rem) !important;
   }
 
   .contact-social-bar .social-icon-btn {
@@ -1625,11 +1631,15 @@ p {
     padding: 0.25rem 0.5rem;
   }
 
-  .contact-social-bar {
+  .contact-social-bar,
+  .consultation-title-box {
     max-width: 100%;
-    padding: 0.65rem 0.5rem !important;
+    border-radius: 20px;
+  }
+
+  .contact-social-bar {
+    padding: 0.75rem 0.5rem !important;
     gap: clamp(0.2rem, 1.8vw, 0.45rem) !important;
-    border-radius: 30px;
   }
 
   .contact-social-bar .social-icon-btn {
