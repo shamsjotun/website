@@ -1059,17 +1059,27 @@ p {
   font-weight: 400;
 }
 
+.consultation-link-container {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
 .consultation-whatsapp-link {
   color: var(--primary-accent);
   font-weight: 800;
+  font-size: 1.05rem;
   text-decoration: underline;
   text-underline-offset: 5px;
-  padding: 0.1rem 0.4rem;
+  padding: 0.4rem 1.4rem;
   background: rgba(236, 169, 8, 0.12);
-  border-radius: 6px;
-  border: 1px solid rgba(236, 169, 8, 0.25);
+  border-radius: 20px;
+  border: 1px solid rgba(236, 169, 8, 0.35);
   transition: var(--transition-smooth);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .consultation-whatsapp-link:hover {
@@ -1077,7 +1087,7 @@ p {
   color: #ffffff;
   border-color: #25D366;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.55);
   transform: translateY(-2px);
 }
 
