@@ -924,9 +924,9 @@ p {
   align-items: center !important;
   justify-content: center !important;
   direction: ltr;
-  gap: clamp(1rem, 2.8vw, 2.5rem) !important;
+  gap: clamp(1rem, 2.5vw, 2.2rem) !important;
   margin: 1.5rem auto 1.5rem auto !important;
-  padding: 1.15rem 2rem !important;
+  padding: 1.25rem 2rem !important;
   background: linear-gradient(145deg, rgba(1, 15, 43, 0.85) 0%, rgba(3, 26, 70, 0.6) 100%);
   border: 1px solid rgba(236, 169, 8, 0.32);
   border-radius: 28px;
@@ -939,12 +939,12 @@ p {
 }
 
 .contact-social-bar .social-icon-btn {
-  width: 52px;
-  height: 52px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(236, 169, 8, 0.25);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(236, 169, 8, 0.28);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -952,32 +952,32 @@ p {
 }
 
 .contact-social-bar .social-icon-btn i {
-  font-size: 1.3rem;
+  font-size: 1.65rem;
   line-height: 1;
 }
 
 .contact-social-bar .social-icon-btn.whatsapp i {
-  font-size: 1.45rem;
+  font-size: 1.85rem;
 }
 
 .contact-social-bar .social-icon-btn.phone i {
-  font-size: 1.15rem;
+  font-size: 1.5rem;
 }
 
 .contact-social-bar .social-icon-btn.facebook i {
-  font-size: 1.35rem;
+  font-size: 1.7rem;
 }
 
 .contact-social-bar .social-icon-btn.instagram i {
-  font-size: 1.35rem;
+  font-size: 1.7rem;
 }
 
 .contact-social-bar .social-icon-btn.tiktok i {
-  font-size: 1.25rem;
+  font-size: 1.55rem;
 }
 
 .contact-social-bar .social-icon-btn.maps i {
-  font-size: 1.3rem;
+  font-size: 1.65rem;
 }
 
 .social-icon-btn {
@@ -1567,21 +1567,21 @@ p {
   }
 
   .contact-social-bar {
-    padding: 0.85rem 1rem !important;
-    gap: clamp(0.4rem, 2vw, 0.85rem) !important;
+    padding: 0.95rem 1rem !important;
+    gap: clamp(0.5rem, 2.2vw, 1rem) !important;
   }
 
   .contact-social-bar .social-icon-btn {
-    width: 42px !important;
-    height: 42px !important;
+    width: 48px !important;
+    height: 48px !important;
   }
 
   .contact-social-bar .social-icon-btn i {
-    font-size: 1.15rem !important;
+    font-size: 1.3rem !important;
   }
 
   .contact-social-bar .social-icon-btn.whatsapp i {
-    font-size: 1.3rem !important;
+    font-size: 1.45rem !important;
   }
 
   .header-company-logo {
@@ -1638,21 +1638,21 @@ p {
   }
 
   .contact-social-bar {
-    padding: 0.75rem 0.5rem !important;
-    gap: clamp(0.2rem, 1.8vw, 0.45rem) !important;
+    padding: 0.75rem 0.35rem !important;
+    gap: clamp(0.15rem, 1.6vw, 0.4rem) !important;
   }
 
   .contact-social-bar .social-icon-btn {
-    width: clamp(34px, 8.8vw, 40px) !important;
-    height: clamp(34px, 8.8vw, 40px) !important;
+    width: clamp(38px, 9.4vw, 44px) !important;
+    height: clamp(38px, 9.4vw, 44px) !important;
   }
 
   .contact-social-bar .social-icon-btn i {
-    font-size: clamp(0.95rem, 2.8vw, 1.1rem) !important;
+    font-size: clamp(1.05rem, 3.2vw, 1.25rem) !important;
   }
 
   .contact-social-bar .social-icon-btn.whatsapp i {
-    font-size: clamp(1.05rem, 3.2vw, 1.25rem) !important;
+    font-size: clamp(1.15rem, 3.5vw, 1.4rem) !important;
   }
 
   .contact-header-top-row .section-subtitle,
@@ -1679,22 +1679,22 @@ p {
   }
 
   .contact-social-bar {
-    padding: 0.55rem 0.35rem !important;
-    gap: 0.25rem !important;
+    padding: 0.6rem 0.25rem !important;
+    gap: 0.2rem !important;
     border-radius: 25px;
   }
 
   .contact-social-bar .social-icon-btn {
-    width: 32px !important;
-    height: 32px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
 
   .contact-social-bar .social-icon-btn i {
-    font-size: 0.88rem !important;
+    font-size: 0.95rem !important;
   }
 
   .contact-social-bar .social-icon-btn.whatsapp i {
-    font-size: 0.98rem !important;
+    font-size: 1.05rem !important;
   }
 
   .contact-header-top-row .section-subtitle,
