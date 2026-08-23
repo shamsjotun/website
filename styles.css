@@ -1639,22 +1639,28 @@ p {
   }
 
   .contact-social-bar {
-    padding: 0.85rem 0.6rem !important;
-    gap: clamp(0.35rem, 2.5vw, 0.85rem) !important;
-    justify-content: space-evenly !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.85rem 0.5rem !important;
+    gap: 0 !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    box-sizing: border-box !important;
   }
 
   .contact-social-bar .social-icon-btn {
-    width: clamp(40px, 10.5vw, 48px) !important;
-    height: clamp(40px, 10.5vw, 48px) !important;
+    width: clamp(42px, 12.8vw, 50px) !important;
+    height: clamp(42px, 12.8vw, 50px) !important;
+    flex-shrink: 0 !important;
   }
 
   .contact-social-bar .social-icon-btn i {
-    font-size: clamp(1.15rem, 3.5vw, 1.35rem) !important;
+    font-size: clamp(1.2rem, 3.8vw, 1.45rem) !important;
   }
 
   .contact-social-bar .social-icon-btn.whatsapp i {
-    font-size: clamp(1.25rem, 3.8vw, 1.5rem) !important;
+    font-size: clamp(1.35rem, 4.2vw, 1.65rem) !important;
   }
 
   .contact-header-top-row .section-subtitle,
@@ -1681,23 +1687,24 @@ p {
   }
 
   .contact-social-bar {
-    padding: 0.7rem 0.35rem !important;
-    gap: 0.3rem !important;
-    justify-content: space-evenly !important;
+    padding: 0.75rem 0.35rem !important;
+    gap: 0 !important;
+    justify-content: space-between !important;
     border-radius: 25px;
   }
 
   .contact-social-bar .social-icon-btn {
-    width: 38px !important;
-    height: 38px !important;
+    width: clamp(38px, 12.2vw, 42px) !important;
+    height: clamp(38px, 12.2vw, 42px) !important;
+    flex-shrink: 0 !important;
   }
 
   .contact-social-bar .social-icon-btn i {
-    font-size: 1.05rem !important;
+    font-size: 1.12rem !important;
   }
 
   .contact-social-bar .social-icon-btn.whatsapp i {
-    font-size: 1.18rem !important;
+    font-size: 1.28rem !important;
   }
 
   .contact-header-top-row .section-subtitle,
