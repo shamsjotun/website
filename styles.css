@@ -1567,21 +1567,22 @@ p {
   }
 
   .contact-social-bar {
-    padding: 0.95rem 1rem !important;
-    gap: clamp(0.5rem, 2.2vw, 1rem) !important;
+    padding: 1rem 1.25rem !important;
+    gap: clamp(0.75rem, 2.5vw, 1.35rem) !important;
+    justify-content: space-evenly !important;
   }
 
   .contact-social-bar .social-icon-btn {
-    width: 48px !important;
-    height: 48px !important;
+    width: 52px !important;
+    height: 52px !important;
   }
 
   .contact-social-bar .social-icon-btn i {
-    font-size: 1.3rem !important;
+    font-size: 1.35rem !important;
   }
 
   .contact-social-bar .social-icon-btn.whatsapp i {
-    font-size: 1.45rem !important;
+    font-size: 1.55rem !important;
   }
 
   .header-company-logo {
@@ -1638,21 +1639,22 @@ p {
   }
 
   .contact-social-bar {
-    padding: 0.75rem 0.35rem !important;
-    gap: clamp(0.15rem, 1.6vw, 0.4rem) !important;
+    padding: 0.85rem 0.6rem !important;
+    gap: clamp(0.35rem, 2.5vw, 0.85rem) !important;
+    justify-content: space-evenly !important;
   }
 
   .contact-social-bar .social-icon-btn {
-    width: clamp(38px, 9.4vw, 44px) !important;
-    height: clamp(38px, 9.4vw, 44px) !important;
+    width: clamp(40px, 10.5vw, 48px) !important;
+    height: clamp(40px, 10.5vw, 48px) !important;
   }
 
   .contact-social-bar .social-icon-btn i {
-    font-size: clamp(1.05rem, 3.2vw, 1.25rem) !important;
+    font-size: clamp(1.15rem, 3.5vw, 1.35rem) !important;
   }
 
   .contact-social-bar .social-icon-btn.whatsapp i {
-    font-size: clamp(1.15rem, 3.5vw, 1.4rem) !important;
+    font-size: clamp(1.25rem, 3.8vw, 1.5rem) !important;
   }
 
   .contact-header-top-row .section-subtitle,
@@ -1679,22 +1681,23 @@ p {
   }
 
   .contact-social-bar {
-    padding: 0.6rem 0.25rem !important;
-    gap: 0.2rem !important;
+    padding: 0.7rem 0.35rem !important;
+    gap: 0.3rem !important;
+    justify-content: space-evenly !important;
     border-radius: 25px;
   }
 
   .contact-social-bar .social-icon-btn {
-    width: 35px !important;
-    height: 35px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
 
   .contact-social-bar .social-icon-btn i {
-    font-size: 0.95rem !important;
+    font-size: 1.05rem !important;
   }
 
   .contact-social-bar .social-icon-btn.whatsapp i {
-    font-size: 1.05rem !important;
+    font-size: 1.18rem !important;
   }
 
   .contact-header-top-row .section-subtitle,
