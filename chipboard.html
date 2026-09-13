@@ -77,8 +77,13 @@
               ألواح شيبورد ديكورية مضغوطة عالية الجودة ومعالجة ضد الرطوبة، مثالية لتكسيات الجدران، خلفيات الشاشات، وتصميمات الأثاث الحديث بأناقة فائقة.
             </p>
             <div class="product-footer">
-              <span class="product-price-box" data-testid="chipboard-price-1">---</span>
-              <a href="https://drive.google.com/file/d/1Ws8VYPzMVruH9PDoujdGHmZ2Kfszudi0/view?usp=drive_link" class="btn btn-text" data-testid="chipboard-product-button-1">عرض الكتالوج (PDF) ←</a>
+              <span class="product-price-box" data-testid="chipboard-price-1" onclick="event.stopPropagation(); addToCart('شيبورد', 'assets/chipboard-catalog.png', 'chipboard-item', '---')" style="cursor: pointer;" title="أضف للسلة">---</span>
+              <div class="product-footer-actions">
+                <button type="button" class="btn btn-add-to-cart" onclick="event.stopPropagation(); addToCart('شيبورد', 'assets/chipboard-catalog.png', 'chipboard-item', '---')" data-testid="chipboard-add-cart-1">
+                  <i class="fa-solid fa-cart-plus"></i> أضف للسلة
+                </button>
+                <a href="https://drive.google.com/file/d/1Ws8VYPzMVruH9PDoujdGHmZ2Kfszudi0/view?usp=drive_link" class="btn btn-text" data-testid="chipboard-product-button-1">عرض الكتالوج (PDF) ←</a>
+              </div>
             </div>
           </div>
         </article>

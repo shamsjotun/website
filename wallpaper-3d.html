@@ -77,8 +77,13 @@
               ورق حائط ثلاثي الأبعاد بتصاميم مجسمة فاخرة وخامات عالية المتانة ومقاومة للرطوبة، تمنح الغرف والمساحات عمقاً بصرياً وبُعداً جمالياً استثنائياً.
             </p>
             <div class="product-footer">
-              <span class="product-price-box" data-testid="wallpaper-price-1">---</span>
-              <a href="https://drive.google.com/file/d/13UxWbGVMN7yZkNtTS794HVJslWAHRlb7/view?usp=drive_link" class="btn btn-text" data-testid="wallpaper-product-button-1">عرض الكتالوج (PDF) ←</a>
+              <span class="product-price-box" data-testid="wallpaper-price-1" onclick="event.stopPropagation(); addToCart('ورق ثري دي', 'assets/wallpaper-3d.png', 'wallpaper-3d-item', '---')" style="cursor: pointer;" title="أضف للسلة">---</span>
+              <div class="product-footer-actions">
+                <button type="button" class="btn btn-add-to-cart" onclick="event.stopPropagation(); addToCart('ورق ثري دي', 'assets/wallpaper-3d.png', 'wallpaper-3d-item', '---')" data-testid="wallpaper-add-cart-1">
+                  <i class="fa-solid fa-cart-plus"></i> أضف للسلة
+                </button>
+                <a href="https://drive.google.com/file/d/13UxWbGVMN7yZkNtTS794HVJslWAHRlb7/view?usp=drive_link" class="btn btn-text" data-testid="wallpaper-product-button-1">عرض الكتالوج (PDF) ←</a>
+              </div>
             </div>
           </div>
         </article>

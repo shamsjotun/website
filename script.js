@@ -70,4 +70,249 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Smooth scroll listener as reliable backup
   window.addEventListener('scroll', checkInitialVisibility, { passive: true });
+
+  // Initialize Shopping Cart System
+  initCart();
 });
+
+/* ==========================================================================
+   Shopping Cart Engine (سلة الطلبات)
+   ========================================================================== */
+
+const CART_KEY = 'shams_store_cart';
+
+function getCart() {
+  try {
+    const raw = localStorage.getItem(CART_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveCart(cart) {
+  try {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  } catch (e) {}
+  renderCartUI();
+}
+
+function addToCart(title, image, id, price = '---') {
+  const cart = getCart();
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.quantity = (existing.quantity || 1) + 1;
+  } else {
+    cart.push({
+      id: id || title,
+      title,
+      image,
+      price,
+      quantity: 1
+    });
+  }
+  saveCart(cart);
+  showCartToast(`تمت إضافة "${title}" إلى السلة ✓`);
+  openCart();
+}
+
+function removeFromCart(id) {
+  let cart = getCart();
+  cart = cart.filter(item => item.id !== id);
+  saveCart(cart);
+}
+
+function updateCartQty(id, delta) {
+  const cart = getCart();
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    item.quantity = (item.quantity || 1) + delta;
+    if (item.quantity <= 0) {
+      removeFromCart(id);
+      return;
+    }
+    saveCart(cart);
+  }
+}
+
+function clearCart() {
+  if (!confirm('هل أنت متأكد من رغبتك في تفريغ سلة الطلبات؟')) return;
+  saveCart([]);
+}
+
+function openCart() {
+  const drawer = document.getElementById('shams-cart-drawer');
+  const overlay = document.getElementById('shams-cart-overlay');
+  if (drawer && overlay) {
+    drawer.classList.add('is-open');
+    overlay.classList.add('is-visible');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeCart() {
+  const drawer = document.getElementById('shams-cart-drawer');
+  const overlay = document.getElementById('shams-cart-overlay');
+  if (drawer && overlay) {
+    drawer.classList.remove('is-open');
+    overlay.classList.remove('is-visible');
+    document.body.style.overflow = '';
+  }
+}
+
+function sendWhatsAppOrder() {
+  const cart = getCart();
+  if (!cart.length) return;
+
+  let message = 'السلام عليكم شركة الشمس للدهانات والديكور، أود الاستفسار وطلب المنتجات التالية من الموقع:\n\n';
+  cart.forEach((item, index) => {
+    message += `${index + 1}. *${item.title}* (الكمية: ${item.quantity})\n`;
+  });
+  message += '\nيرجى التواصل معي لتأكيد الأسعار وتفاصيل الاستلام. شكراً لكم!';
+
+  const encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/201017088288?text=${encoded}`, '_blank');
+}
+
+let toastTimer = null;
+function showCartToast(text) {
+  let toast = document.getElementById('shams-cart-toast');
+  if (!toast) return;
+  toast.innerHTML = `<i class="fa-solid fa-circle-check"></i><span>${text}</span>`;
+  toast.classList.add('is-shown');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove('is-shown');
+  }, 2800);
+}
+
+function renderCartUI() {
+  const cart = getCart();
+  const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+
+  // Update Badges
+  const badges = document.querySelectorAll('.cart-badge');
+  badges.forEach(b => {
+    b.textContent = totalCount;
+    b.classList.remove('bump');
+    void b.offsetWidth; // trigger reflow
+    b.classList.add('bump');
+  });
+
+  // Update Drawer Title Count
+  const countTag = document.getElementById('cart-items-count-tag');
+  if (countTag) {
+    countTag.textContent = `${totalCount} منتج`;
+  }
+
+  // Render Items List
+  const listEl = document.getElementById('cart-items-container');
+  const footerEl = document.getElementById('cart-drawer-footer');
+  if (!listEl) return;
+
+  if (cart.length === 0) {
+    listEl.innerHTML = `
+      <div class="cart-empty-state">
+        <div class="cart-empty-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+        <h4 class="cart-empty-title">سلة الطلبات فارغة</h4>
+        <p class="cart-empty-desc">تصفح منتجاتنا وأضف ما يناسبك إلى سلة الطلبات للاستفسار عنها مباشرة عبر الواتساب.</p>
+      </div>
+    `;
+    if (footerEl) footerEl.style.display = 'none';
+  } else {
+    if (footerEl) footerEl.style.display = 'block';
+    listEl.innerHTML = cart.map(item => `
+      <div class="cart-item-card" data-id="${item.id}">
+        <img src="${item.image}" alt="${item.title}" class="cart-item-img" onerror="this.src='assets/shams-header-logo.png'">
+        <div class="cart-item-info">
+          <div class="cart-item-title" title="${item.title}">${item.title}</div>
+          <div class="cart-item-price-row">
+            <span>السعر:</span>
+            <span class="product-price-box" style="min-width: 50px; padding: 0.15rem 0.6rem; font-size: 0.8rem;">${item.price || '---'}</span>
+          </div>
+          <div class="cart-item-qty-row">
+            <button type="button" class="qty-btn" onclick="updateCartQty('${item.id}', -1)" aria-label="تقليل الكمية">−</button>
+            <span class="qty-val">${item.quantity}</span>
+            <button type="button" class="qty-btn" onclick="updateCartQty('${item.id}', 1)" aria-label="زيادة الكمية">+</button>
+          </div>
+        </div>
+        <button type="button" class="cart-item-remove-btn" onclick="removeFromCart('${item.id}')" title="حذف من السلة" aria-label="حذف">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+    `).join('');
+  }
+}
+
+function initCart() {
+  // Inject Header Cart Button if not present
+  const headerActions = document.querySelector('.header-actions');
+  if (headerActions && !document.getElementById('header-cart-btn')) {
+    const btn = document.createElement('button');
+    btn.id = 'header-cart-btn';
+    btn.type = 'button';
+    btn.className = 'cart-trigger-btn';
+    btn.setAttribute('aria-label', 'سلة الطلبات');
+    btn.setAttribute('title', 'عرض سلة الطلبات');
+    btn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span>`;
+    btn.onclick = openCart;
+    headerActions.prepend(btn);
+  }
+
+  // Inject Floating Cart Button
+  if (!document.getElementById('floating-cart-btn')) {
+    const floatBtn = document.createElement('button');
+    floatBtn.id = 'floating-cart-btn';
+    floatBtn.type = 'button';
+    floatBtn.className = 'floating-cart-btn';
+    floatBtn.setAttribute('aria-label', 'سلة الطلبات');
+    floatBtn.setAttribute('title', 'عرض سلة الطلبات');
+    floatBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span>`;
+    floatBtn.onclick = openCart;
+    document.body.appendChild(floatBtn);
+  }
+
+  // Inject Overlay & Drawer Markup
+  if (!document.getElementById('shams-cart-drawer')) {
+    const cartWrapper = document.createElement('div');
+    cartWrapper.innerHTML = `
+      <div id="shams-cart-overlay" class="shams-cart-overlay" onclick="closeCart()"></div>
+      <aside id="shams-cart-drawer" class="shams-cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="cart-drawer-header">
+          <div class="cart-drawer-title" id="cart-title">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>سلة الطلبات</span>
+            <span class="cart-items-count-tag" id="cart-items-count-tag">0 منتج</span>
+          </div>
+          <button type="button" class="cart-drawer-close" onclick="closeCart()" aria-label="إغلاق السلة">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cart-drawer-body" id="cart-items-container"></div>
+        <div class="cart-drawer-footer" id="cart-drawer-footer">
+          <div class="cart-summary-note">
+            <i class="fa-solid fa-circle-info" style="color: #eca908; margin-left: 4px;"></i>
+            تأكيد التكلفة والكميات بدقة يتم مباشرة من خلال الاستفسار مع خدمة العملاء.
+          </div>
+          <div class="cart-footer-actions">
+            <button type="button" class="btn-whatsapp-order" onclick="sendWhatsAppOrder()">
+              <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i>
+              <span>إرسال الطلب عبر واتساب</span>
+            </button>
+            <button type="button" class="btn-clear-cart" onclick="clearCart()">تفريغ السلة</button>
+          </div>
+        </div>
+      </aside>
+      <div id="shams-cart-toast" class="shams-cart-toast" role="status" aria-live="polite"></div>
+    `;
+    document.body.appendChild(cartWrapper);
+  }
+
+  // Close on Escape Key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeCart();
+  });
+
+  // Render on load
+  renderCartUI();
+}
