@@ -725,6 +725,31 @@ p {
   font-size: 1rem;
 }
 
+.product-price-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.9rem;
+  background: rgba(236, 169, 8, 0.08);
+  border: 1px solid rgba(236, 169, 8, 0.35);
+  border-radius: 8px;
+  color: var(--primary-accent, #eca908);
+  font-family: 'Cairo', 'Alexandria', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  min-width: 68px;
+  text-align: center;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.product-price-box:hover {
+  background: rgba(236, 169, 8, 0.16);
+  border-color: rgba(236, 169, 8, 0.6);
+  box-shadow: 0 0 10px rgba(236, 169, 8, 0.2);
+}
+
 /* --- Contact & Consultation Form --- */
 .contact-section {
   background-color: #010610; /* Ultra-deep dark background */
