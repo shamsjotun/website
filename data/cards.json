@@ -493,20 +493,5 @@
     "hasPrice": false,
     "price": "---",
     "canAddToCart": false
-  },
-  {
-    "id": "index-mvs3falw",
-    "page": "index",
-    "grid": "main",
-    "order": 6,
-    "title": "hghjgjhgh",
-    "desc": "gfyttfgresfddtrdgfcgfytfjhvjgv",
-    "image": "assets/placeholder.png",
-    "type": "product",
-    "link": "",
-    "linkText": "عرض الكتالوج (PDF) ←",
-    "hasPrice": true,
-    "price": "---515",
-    "canAddToCart": false
   }
 ]
