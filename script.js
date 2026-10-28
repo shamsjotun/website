@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Shopping Cart System
   initCart();
+
+  // Hydrate Dynamic Cards from data/cards.json
+  loadDynamicCards();
 });
 
 /* ==========================================================================
@@ -231,9 +234,9 @@ function renderCartUI() {
             <span class="product-price-box" style="min-width: 50px; padding: 0.15rem 0.6rem; font-size: 0.8rem;">${item.price || '---'}</span>
           </div>
           <div class="cart-item-qty-row">
-            <button type="button" class="qty-btn" onclick="updateCartQty('${item.id}', -1)" aria-label="تقليل الكمية">−</button>
-            <span class="qty-val">${item.quantity}</span>
             <button type="button" class="qty-btn" onclick="updateCartQty('${item.id}', 1)" aria-label="زيادة الكمية">+</button>
+            <span class="qty-val">${item.quantity}</span>
+            <button type="button" class="qty-btn" onclick="updateCartQty('${item.id}', -1)" aria-label="تقليل الكمية">−</button>
           </div>
         </div>
         <button type="button" class="cart-item-remove-btn" onclick="removeFromCart('${item.id}')" title="حذف من السلة" aria-label="حذف">
@@ -316,3 +319,162 @@ function initCart() {
   // Render on load
   renderCartUI();
 }
+
+/* ==========================================================================
+   Dynamic Card Hydration Engine (from data/cards.json)
+   ========================================================================== */
+
+function getCurrentPageKey() {
+  const pathname = window.location.pathname;
+  let filename = pathname.split('/').pop().replace('.html', '');
+  if (!filename || filename === '') filename = 'index';
+  return filename;
+}
+
+async function loadDynamicCards() {
+  const pageKey = getCurrentPageKey();
+
+  try {
+    const res = await fetch(`data/cards.json?t=${Date.now()}`);
+    if (!res.ok) return;
+
+    const cards = await res.json();
+    if (!Array.isArray(cards)) return;
+
+    const pageCards = cards.filter(c => c.page === pageKey);
+    if (!pageCards.length) return;
+
+    renderPageDynamicCards(pageKey, pageCards);
+  } catch (err) {
+    // Graceful offline fallback: static HTML cards remain untouched
+    console.debug('Dynamic cards offline or local fallback:', err);
+  }
+}
+
+function renderPageDynamicCards(pageKey, cards) {
+  // Sort cards by order if specified
+  cards.sort((a, b) => (a.order || 0) - (b.order || 0));
+
+  if (pageKey === 'decorations') {
+    const topGrid = document.querySelector('[data-testid="decorations-grid-top"]');
+    const bottomGrid = document.querySelector('[data-testid="decorations-grid-bottom"]');
+    
+    if (topGrid && bottomGrid) {
+      const topCards = cards.filter(c => c.grid === 'top');
+      const bottomCards = cards.filter(c => c.grid !== 'top');
+      
+      if (topCards.length) topGrid.innerHTML = topCards.map((c, i) => buildCardHTML(c, i)).join('');
+      if (bottomCards.length) bottomGrid.innerHTML = bottomCards.map((c, i) => buildCardHTML(c, i + topCards.length)).join('');
+      setupCardAnimations();
+      return;
+    }
+  }
+
+  // General pages with a single product-grid
+  const grid = document.querySelector('.product-grid');
+  if (grid) {
+    grid.innerHTML = cards.map((c, i) => buildCardHTML(c, i)).join('');
+    setupCardAnimations();
+  }
+}
+
+function buildCardHTML(card, index) {
+  const hasLink = !!card.link && card.link !== '#';
+  const clickAttr = hasLink ? `onclick="window.location.href='${card.link}'"` : '';
+  const cursorStyle = hasLink ? '' : 'style="cursor: default;"';
+  const isJotunHome = card.id === 'home-jotun';
+
+  let imageMarkup = '';
+  if (isJotunHome) {
+    imageMarkup = `
+      <div class="product-image-container" data-testid="product-image-container-jotun">
+        <a href="${card.link || '#'}" class="product-image-placeholder color-featured jotun-featured-placeholder" data-testid="product-image-placeholder-jotun">
+          <div class="jotun-logo-wrapper">
+            <img src="${card.image}" id="img-jotun-logo" alt="${card.title}" class="jotun-image-logo jotun-logo-desktop" data-testid="jotun-image-logo">
+            <img src="assets/jotun-card-mobile.png" id="img-jotun-logo-mobile" alt="${card.title}" class="jotun-image-logo jotun-logo-mobile" data-testid="jotun-image-logo-mobile">
+          </div>
+        </a>
+      </div>
+    `;
+  } else {
+    imageMarkup = `
+      <div class="product-image-container">
+        ${hasLink ? `<a href="${card.link}">` : ''}
+          <img src="${card.image || 'assets/placeholder.png'}" alt="${card.title}" class="product-card-image" onerror="this.src='assets/placeholder.png'">
+        ${hasLink ? `</a>` : ''}
+      </div>
+    `;
+  }
+
+  const safeTitle = (card.title || '').replace(/'/g, "\\'");
+  const safeImg = (card.image || '').replace(/'/g, "\\'");
+  const safeId = (card.id || '').replace(/'/g, "\\'");
+  const safePrice = (card.price || '---').replace(/'/g, "\\'");
+
+  const cartBtn = card.canAddToCart
+    ? `<button type="button" class="btn btn-add-to-cart" onclick="event.stopPropagation(); addToCart('${safeTitle}', '${safeImg}', '${safeId}', '${safePrice}')">
+        <i class="fa-solid fa-cart-plus"></i> أضف للسلة
+       </button>`
+    : '';
+
+  const priceBox = card.hasPrice
+    ? `<span class="product-price-box" ${card.canAddToCart ? `onclick="event.stopPropagation(); addToCart('${safeTitle}', '${safeImg}', '${safeId}', '${safePrice}')" style="cursor: pointer;" title="أضف للسلة"` : ''}>${card.price || '---'}</span>`
+    : '';
+
+  const linkBtn = hasLink
+    ? `<a href="${card.link}" class="btn btn-text">${card.linkText || 'عرض التفاصيل ←'}</a>`
+    : '';
+
+  let footerMarkup = '';
+  if (card.hasPrice || card.canAddToCart || hasLink) {
+    footerMarkup = `
+      <div class="product-footer">
+        ${priceBox}
+        <div class="product-footer-actions">
+          ${cartBtn}
+          ${linkBtn}
+        </div>
+      </div>
+    `;
+  }
+
+  const articleId = isJotunHome ? 'id="jotun-card"' : (card.id === 'home-decorations' ? 'id="other-companies"' : `id="${card.id}"`);
+
+  return `
+    <article class="product-card" ${articleId} ${clickAttr} ${cursorStyle}>
+      ${imageMarkup}
+      <div class="product-info ${isJotunHome ? 'jotun-product-info' : ''}">
+        ${isJotunHome ? '<div class="jotun-card-details">' : ''}
+          <h3 class="product-title ${isJotunHome ? 'jotun-title' : ''}">
+            ${hasLink ? `<a href="${card.link}" style="color: inherit; text-decoration: none;">` : ''}
+              ${card.title}
+            ${hasLink ? `</a>` : ''}
+          </h3>
+          <p class="product-desc ${isJotunHome ? 'jotun-desc' : ''}">
+            ${card.desc || ''}
+          </p>
+        ${isJotunHome ? '</div>' : ''}
+        ${footerMarkup}
+      </div>
+    </article>
+  `;
+}
+
+function setupCardAnimations() {
+  const cards = document.querySelectorAll('.product-card');
+  const isMobile = window.innerWidth <= 768;
+
+  cards.forEach((el, index) => {
+    el.classList.add('animate-on-scroll');
+    if (index % 2 === 0) {
+      el.classList.add('animate-from-left');
+    } else {
+      el.classList.add('animate-from-right');
+    }
+    const delay = isMobile ? (index % 2) * 0.08 : (index % 3) * 0.12;
+    el.style.transitionDelay = `${delay}s`;
+    // Animate into view
+    requestAnimationFrame(() => el.classList.add('is-visible'));
+  });
+}
+

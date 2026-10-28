@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم | شركة الشمس للدهانات والديكور</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/company-logo.png">
+
+  <!-- Google Fonts: Cairo & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- ==========================================================================
+       Authentication Overlay (GitHub PAT Login)
+       ========================================================================== -->
+  <div class="admin-auth-overlay" id="admin-auth-overlay">
+    <div class="admin-auth-card">
+      <div class="admin-auth-logo">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h2 class="admin-auth-title">لوحة إدارة شركة الشمس</h2>
+      <p class="admin-auth-desc">سجل الدخول باستخدام رمز وصول GitHub (Personal Access Token) لإدارة البطاقات ورفع الصور مباشرة إلى الموقع.</p>
+
+      <form class="admin-auth-form" id="admin-auth-form">
+        <div class="admin-form-group">
+          <label class="admin-label" for="admin-pat-input">
+            <i class="fa-solid fa-key"></i> رمز الوصول الخاص بـ GitHub (PAT)
+          </label>
+          <input 
+            type="password" 
+            id="admin-pat-input" 
+            class="admin-input" 
+            placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
+            autocomplete="off" 
+            required>
+        </div>
+
+        <button type="submit" class="admin-btn admin-btn-primary" id="admin-btn-auth-submit" style="width: 100%; padding: 0.85rem;">
+          <i class="fa-solid fa-arrow-left"></i> دخول لوحة التحكم
+        </button>
+
+        <div class="admin-auth-help">
+          <strong><i class="fa-solid fa-circle-question"></i> كيف تحصل على الرمز مجاناً؟ (30 ثانية)</strong>
+          <ol style="margin-right: 1.25rem; margin-top: 0.35rem; padding: 0;">
+            <li>اضغط على: <a href="https://github.com/settings/tokens/new?scopes=repo&description=Shams+Website+Admin" target="_blank" rel="noopener">إنشاء رمز GitHub جديد ↗</a></li>
+            <li>تأكد من تحديد صلاحية <code>repo</code> ثم اضغط <strong>Generate token</strong> بالأسفل.</li>
+            <li>انسخ الرمز والصقه هنا وسيتم حفظه في جهازك فقط بأمان.</li>
+          </ol>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Main Admin Dashboard
+       ========================================================================== -->
+  <div class="admin-container">
+    
+    <!-- Top Header -->
+    <header class="admin-header">
+      <div class="admin-brand">
+        <div class="admin-brand-icon">
+          <i class="fa-solid fa-palette"></i>
+        </div>
+        <div>
+          <h1 class="admin-brand-title">لوحة التحكم | شركة الشمس</h1>
+          <div class="admin-brand-subtitle">
+            <i class="fa-solid fa-circle-check"></i> متصل بمستودع <code>shamsjotun/website</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-header-actions">
+        <span class="admin-status-pill status-online" id="admin-user-pill">
+          <i class="fa-solid fa-user-shield"></i> <span id="admin-user-name">المشرف</span>
+        </span>
+        <a href="index.html" target="_blank" class="admin-btn admin-btn-secondary" title="فتح الموقع الحي">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> عرض الموقع
+        </a>
+        <button type="button" class="admin-btn admin-btn-danger" id="admin-btn-logout" title="تسجيل الخروج">
+          <i class="fa-solid fa-right-from-bracket"></i> خروج
+        </button>
+      </div>
+    </header>
+
+    <!-- Status & Add Bar -->
+    <section class="admin-status-bar">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+        <span class="admin-status-pill status-online">
+          <i class="fa-solid fa-database"></i> إجمالي البطاقات: <strong id="admin-total-cards-count" style="margin-right: 4px;">0</strong>
+        </span>
+        <span class="admin-label-hint">
+          <i class="fa-solid fa-clock-rotate-left"></i> التعديلات تُحفظ وتُنشر تلقائياً إلى مستودع GitHub.
+        </span>
+      </div>
+
+      <button type="button" class="admin-btn admin-btn-primary" id="admin-btn-add-card">
+        <i class="fa-solid fa-plus"></i> إضافة بطاقة جديدة
+      </button>
+    </section>
+
+    <!-- Page Filter Tabs -->
+    <section class="admin-filters-section">
+      <div class="admin-filters-header">
+        <h2 class="admin-section-title">
+          <i class="fa-solid fa-layer-group"></i> فلترة حسب الصفحة والقسم
+        </h2>
+      </div>
+      <div class="admin-filter-pills" id="admin-filter-pills">
+        <!-- Generated Dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- Cards Grid -->
+    <main>
+      <div id="admin-cards-loading" style="text-align: center; padding: 3rem; display: none;">
+        <span class="admin-spinner" style="width: 32px; height: 32px; border-width: 3px;"></span>
+        <p style="margin-top: 1rem; color: var(--admin-text-muted);">جاري تحميل البطاقات من GitHub...</p>
+      </div>
+
+      <div class="admin-cards-grid" id="admin-cards-grid">
+        <!-- Rendered Dynamically by JS -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ==========================================================================
+       Add / Edit Card Modal
+       ========================================================================== -->
+  <div class="admin-modal-backdrop" id="admin-card-modal">
+    <div class="admin-modal">
+      
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title" id="admin-modal-title-text">
+          <i class="fa-solid fa-pen-ruler"></i> إضافة بطاقة جديدة
+        </h3>
+        <button type="button" class="admin-modal-close" id="admin-modal-close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="admin-card-form">
+        <div class="admin-modal-body">
+          
+          <!-- Page Selector -->
+          <div class="admin-form-group">
+            <label class="admin-label" for="card-page-select">
+              <i class="fa-solid fa-file-lines"></i> الصفحة المستهدفة *
+            </label>
+            <select id="card-page-select" class="admin-select" required>
+              <option value="index">الصفحة الرئيسية (المجموعة المتميزة)</option>
+              <option value="decorations">قسم الديكورات (decorations.html)</option>
+              <option value="wood-alternatives">بدائل الخشب (wood-alternatives.html)</option>
+              <option value="marble-alternatives">بدائل الرخام (marble-alternatives.html)</option>
+              <option value="foutec">الفيوتيك (foutec.html)</option>
+              <option value="chipboard">الشيبورد (chipboard.html)</option>
+              <option value="wallpaper-3d">ورق ثري دي (wallpaper-3d.html)</option>
+              <option value="malaysian-gypsum">جبس ماليزي (malaysian-gypsum.html)</option>
+              <option value="plastics">البلاستيكات (plastics.html)</option>
+              <option value="lacquers">اللاكيهات (lacquers.html)</option>
+              <option value="primers">التأسيسات (primers.html)</option>
+              <option value="jotun">يوتن الرئيسية (jotun.html)</option>
+              <option value="jotun-interior">يوتن - دهانات داخلية (jotun-interior.html)</option>
+            </select>
+          </div>
+
+          <!-- Title & Type Row -->
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-label" for="card-title">
+                <i class="fa-solid fa-heading"></i> عنوان البطاقة *
+              </label>
+              <input type="text" id="card-title" class="admin-input" placeholder="مثال: بديل خشب مودرن" required>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label" for="card-type-select">
+                <i class="fa-solid fa-shapes"></i> نوع البطاقة
+              </label>
+              <select id="card-type-select" class="admin-select">
+                <option value="navigation">بطاقة قسم / توجيهية (Category/Navigation)</option>
+                <option value="product">بطاقة منتج (Product Card)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="admin-form-group">
+            <label class="admin-label" for="card-desc">
+              <i class="fa-solid fa-align-right"></i> وصف البطاقة
+            </label>
+            <textarea id="card-desc" class="admin-textarea" placeholder="وصف قصير للمنتج أو القسم يظهر أسفل العنوان..."></textarea>
+          </div>
+
+          <!-- Link URL & Link Text Row -->
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-label" for="card-link">
+                <i class="fa-solid fa-link"></i> الرابط المستهدف (URL / PDF)
+              </label>
+              <input type="text" id="card-link" class="admin-input" placeholder="wood-alternatives.html أو رابط جوجل درايف">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label" for="card-link-text">
+                <i class="fa-solid fa-font"></i> نص زر الرابط
+              </label>
+              <input type="text" id="card-link-text" class="admin-input" placeholder="عرض التفاصيل ←" value="عرض التفاصيل ←">
+            </div>
+          </div>
+
+          <!-- Price & Cart Controls -->
+          <div class="admin-form-row">
+            <!-- Price Box Toggle -->
+            <div class="admin-toggle-wrapper">
+              <div class="admin-toggle-label">
+                <span class="admin-toggle-title">تفعيل مربع السعر</span>
+                <span class="admin-toggle-desc">عرض خانة السعر في البطاقة</span>
+              </div>
+              <label class="admin-switch">
+                <input type="checkbox" id="card-price-toggle">
+                <span class="admin-slider"></span>
+              </label>
+            </div>
+
+            <!-- Add to Cart Toggle -->
+            <div class="admin-toggle-wrapper">
+              <div class="admin-toggle-label">
+                <span class="admin-toggle-title">إتاحة الإضافة للسلة</span>
+                <span class="admin-toggle-desc">إظهار زر "أضف للسلة"</span>
+              </div>
+              <label class="admin-switch">
+                <input type="checkbox" id="card-cart-toggle">
+                <span class="admin-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Input (Visible when price toggle is on) -->
+          <div class="admin-form-group" id="card-price-group" style="display: none;">
+            <label class="admin-label" for="card-price">
+              <i class="fa-solid fa-tags"></i> قيمة السعر (اتركه --- إذا كان غير محدد)
+            </label>
+            <input type="text" id="card-price" class="admin-input" value="---" placeholder="مثال: 250 ج.م أو ---">
+          </div>
+
+          <!-- Image Dropzone & Uploader -->
+          <div class="admin-form-group">
+            <label class="admin-label">
+              <i class="fa-solid fa-image"></i> صورة البطاقة (رفع مباشر إلى GitHub)
+            </label>
+            
+            <div class="admin-dropzone" id="card-image-dropzone">
+              <div class="admin-dropzone-icon">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+              </div>
+              <div class="admin-dropzone-text">اضغط هنا أو اسحب الصورة لإفلاتها</div>
+              <div class="admin-dropzone-hint">PNG, JPG, WebP (يتم رفعها وحفظها في مجلد assets بمستودعك)</div>
+              <input type="file" id="card-image-file-input" accept="image/*" style="display: none;">
+            </div>
+
+            <!-- Image Preview Box -->
+            <div class="admin-image-preview-box" id="card-image-preview-box">
+              <img id="card-image-preview" src="" alt="معاينة الصورة" class="admin-image-preview">
+            </div>
+
+            <div style="margin-top: 0.5rem;">
+              <span class="admin-label-hint">أو مسار الصورة الحالي:</span>
+              <input type="text" id="card-image-url" class="admin-input" style="padding: 0.4rem 0.75rem; font-size: 0.82rem;" placeholder="assets/example.png">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="admin-modal-footer">
+          <button type="button" class="admin-btn admin-btn-secondary" id="admin-btn-cancel-modal">إلغاء</button>
+          <button type="submit" class="admin-btn admin-btn-primary" id="admin-btn-save-card">
+            <i class="fa-solid fa-cloud-arrow-up"></i> حفظ ونشر التغييرات
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="admin-toast-container" id="admin-toast-container"></div>
+
+  <!-- Script -->
+  <script src="admin.js"></script>
+</body>
+</html>
