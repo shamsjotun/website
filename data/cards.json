@@ -493,20 +493,5 @@
     "hasPrice": false,
     "price": "---",
     "canAddToCart": false
-  },
-  {
-    "id": "wood-alternatives-mvs3loru",
-    "page": "wood-alternatives",
-    "grid": "main",
-    "order": 3,
-    "title": "بديل خشب 2",
-    "desc": "بديل خشب 2",
-    "image": "assets/image-1793190962373.jpg",
-    "type": "product",
-    "link": "https://drive.google.com/file/d/1eHqcPHr5iRfkGZ-MdXXKY7A2UDsyf5kW/view?usp=drive_link",
-    "linkText": "عرض الكتالوج (PDF) ←",
-    "hasPrice": true,
-    "price": "---",
-    "canAddToCart": true
   }
 ]
