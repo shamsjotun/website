@@ -493,5 +493,20 @@
     "hasPrice": false,
     "price": "---",
     "canAddToCart": false
+  },
+  {
+    "id": "plastics-mw6j6fby",
+    "page": "plastics",
+    "grid": "main",
+    "order": 3,
+    "title": "بيالي",
+    "desc": "اببفببفغلب",
+    "image": "assets/----------2026-05-27-063337-1794063651668.png",
+    "type": "product",
+    "link": "https://drive.google.com/open?id=1TjdOZVMB0Aj3o74Qj-UvOdG-rgxQiF-1&usp=drive_fs",
+    "linkText": "عرض الكتالوج (PDF) ←",
+    "hasPrice": true,
+    "price": "---",
+    "canAddToCart": true
   }
 ]
