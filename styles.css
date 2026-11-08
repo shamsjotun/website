@@ -1929,39 +1929,36 @@ html[dir="rtl"] .footer-links a:hover {
   transform: scale(1.35);
 }
 
-/* Floating Cart Button (visible on mobile and across all pages) */
+/* Floating Cart Button (positioned at bottom-left, styled exactly like the top header cart button) */
 .floating-cart-btn {
   position: fixed;
   bottom: 24px;
   left: 24px;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #d32b1e 0%, #a81c12 100%);
-  border: 2px solid rgba(236, 169, 8, 0.6);
-  color: #ffffff;
-  font-size: 1.35rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 16, 42, 0.94);
+  background-image: radial-gradient(circle at center, rgba(236, 169, 8, 0.15) 0%, rgba(236, 169, 8, 0.08) 100%);
+  border: 1px solid rgba(236, 169, 8, 0.4);
+  border-radius: 50%;
+  color: #eca908;
+  font-size: 1.15rem;
   cursor: pointer;
   z-index: 1050;
-  box-shadow: 0 6px 20px rgba(211, 43, 30, 0.4), 0 2px 8px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(236, 169, 8, 0.2);
+  transition: all 0.3s ease;
 }
 
 .floating-cart-btn:hover {
-  transform: scale(1.08) translateY(-3px);
-  box-shadow: 0 10px 25px rgba(211, 43, 30, 0.55), 0 0 15px rgba(236, 169, 8, 0.4);
-}
-
-.floating-cart-btn .cart-badge {
-  top: -3px;
-  right: -3px;
-  background: #eca908;
-  color: #051329;
-  border-color: #d32b1e;
-  font-weight: 900;
+  background: rgba(0, 20, 52, 0.98);
+  background-image: radial-gradient(circle at center, rgba(236, 169, 8, 0.25) 0%, rgba(236, 169, 8, 0.15) 100%);
+  border-color: #eca908;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.65), 0 4px 14px rgba(236, 169, 8, 0.35);
 }
 
 /* Overlay */
